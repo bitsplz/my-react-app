@@ -1,11 +1,12 @@
 import React from 'react';
 
-function Students() {
+function Students(props) {
+    const {name, age, program}= props;
   return (
     <div className="Students">
-    <div>Name: Mujtaba</div>
-    <div>Age: 22</div>
-    <div>Program: BSCS</div>
+    <div>Name: {name}</div>
+    <div>Age: {age}</div>
+    <div>Program: {program}</div>
     </div>
   );
 }
