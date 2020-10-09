@@ -23,6 +23,7 @@ class App extends Component {
         <h1>My first React app</h1>
         <Students students={this.state.students}/>
         <AddStudents addStudent={this.addStudent}/>
+        
       </div>
     );
   }
