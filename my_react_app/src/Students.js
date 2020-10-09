@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function Students(props) {
-    const {name, age, program}= props;
-  return (
-    <div className="Students">
-    <div>Name: {name}</div>
-    <div>Age: {age}</div>
-    <div>Program: {program}</div>
-    </div>
-  );
+export default class Students extends Component {
+  render(){
+    const { students } = this.props;
+    const studentList = students.map(student => {
+      return (
+        <div className="ninja" key={student.id}>
+          <div>Name: { student.name }</div>
+          <div>Age: { student.age }</div>
+          <div>Belt: { student.program }</div>
+        </div>
+      )
+    });
+    return (
+      <div className="student-list">
+        { studentList }
+      </div>
+    )
+  }
 }
-
-export default Students;
