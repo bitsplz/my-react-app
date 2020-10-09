@@ -11,17 +11,26 @@ class App extends Component {
     ]
   }
   addStudent=(student)=>{
-    student.id=Math.random();
+    student.id=Math.random()*10;
     let tempStudents=[...this.state.students, student]
     this.setState({
       students:tempStudents
     })
   }
+  deleteStudent=(id)=>{
+    //console.log(id);
+    let tempStudents= this.state.students.filter(student=>{
+      return student.id!==id
+    });
+    this.setState({
+      students:tempStudents
+    });
+  }
   render() {
     return (
       <div className="App">
         <h1>My first React app</h1>
-        <Students students={this.state.students}/>
+        <Students deleteStudent={this.deleteStudent} students={this.state.students}/>{/*pass the deleteStudent function to displayStudent*/}
         <AddStudents addStudent={this.addStudent}/>
       </div>
     );
